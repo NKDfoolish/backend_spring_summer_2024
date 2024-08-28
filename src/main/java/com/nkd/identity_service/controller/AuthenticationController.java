@@ -1,10 +1,7 @@
 package com.nkd.identity_service.controller;
 
 import com.nimbusds.jose.JOSEException;
-import com.nkd.identity_service.dto.request.ApiResponse;
-import com.nkd.identity_service.dto.request.AuthenticationRequest;
-import com.nkd.identity_service.dto.request.IntrospectRequest;
-import com.nkd.identity_service.dto.request.LogoutRequest;
+import com.nkd.identity_service.dto.request.*;
 import com.nkd.identity_service.dto.response.AuthenticationResponse;
 import com.nkd.identity_service.dto.response.IntrospectResponse;
 import com.nkd.identity_service.service.AuthenticationService;
@@ -47,6 +44,15 @@ public class AuthenticationController {
             throws ParseException, JOSEException {
         authenticationService.logout(request);
         return ApiResponse.<Void>builder()
+                .build();
+    }
+
+    @PostMapping("/refresh")
+    ApiResponse<AuthenticationResponse> authenticate(@RequestBody RefreshRequest request)
+            throws ParseException, JOSEException {
+        var result = authenticationService.refreshToken(request);
+        return ApiResponse.<AuthenticationResponse>builder()
+                .result(result)
                 .build();
     }
 
