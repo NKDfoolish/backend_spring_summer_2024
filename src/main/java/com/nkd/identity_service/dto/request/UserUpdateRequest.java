@@ -1,11 +1,12 @@
 package com.nkd.identity_service.dto.request;
 
-import com.nkd.identity_service.validator.DobConstraint;
-import lombok.*;
-import lombok.experimental.FieldDefaults;
-
 import java.time.LocalDate;
 import java.util.List;
+
+import com.nkd.identity_service.validator.DobConstraint;
+
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 @Data
 @Builder
