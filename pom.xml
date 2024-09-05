@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.nkd</groupId>
 	<artifactId>identity-service</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>identity-service</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
@@ -207,14 +207,14 @@
 						</importOrder>
 					</java>
 				</configuration>
-				<executions>
-					<execution>
-						<phase>compile</phase>
-						<goals>
-							<goal>apply</goal>
-						</goals>
-					</execution>
-				</executions>
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<phase>compile</phase>-->
+<!--						<goals>-->
+<!--							<goal>check</goal>-->
+<!--						</goals>-->
+<!--					</execution>-->
+<!--				</executions>-->
 			</plugin>
 		</plugins>
 	</build>

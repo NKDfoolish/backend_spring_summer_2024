@@ -3,8 +3,6 @@ package com.nkd.identity_service.service;
 import java.util.HashSet;
 import java.util.List;
 
-import com.nkd.identity_service.constant.PredefinedRole;
-import com.nkd.identity_service.entity.Role;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -12,9 +10,11 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.nkd.identity_service.constant.PredefinedRole;
 import com.nkd.identity_service.dto.request.UserCreationRequest;
 import com.nkd.identity_service.dto.request.UserUpdateRequest;
 import com.nkd.identity_service.dto.response.UserResponse;
+import com.nkd.identity_service.entity.Role;
 import com.nkd.identity_service.entity.User;
 import com.nkd.identity_service.exception.AppException;
 import com.nkd.identity_service.exception.ErrorCode;
@@ -39,7 +39,8 @@ public class UserService {
 
     public UserResponse createUser(UserCreationRequest request) {
         log.info("Service: create-user");
-//        if (userRepository.existsByUsername(request.getUsername())) throw new AppException(ErrorCode.USER_EXISTED);
+        //        if (userRepository.existsByUsername(request.getUsername())) throw new
+        // AppException(ErrorCode.USER_EXISTED);
 
         User user = userMapper.toUser(request);
         user.setPassword(passwordEncoder.encode(request.getPassword()));

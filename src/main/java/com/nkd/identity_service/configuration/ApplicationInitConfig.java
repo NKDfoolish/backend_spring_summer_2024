@@ -2,22 +2,22 @@ package com.nkd.identity_service.configuration;
 
 import java.util.HashSet;
 
-import com.nkd.identity_service.constant.PredefinedRole;
-import com.nkd.identity_service.entity.Role;
-import com.nkd.identity_service.repository.RoleRepository;
-import lombok.experimental.NonFinal;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import com.nkd.identity_service.constant.PredefinedRole;
+import com.nkd.identity_service.entity.Role;
 import com.nkd.identity_service.entity.User;
+import com.nkd.identity_service.repository.RoleRepository;
 import com.nkd.identity_service.repository.UserRepository;
 
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import lombok.experimental.NonFinal;
 import lombok.extern.slf4j.Slf4j;
 
 @Configuration
@@ -47,12 +47,11 @@ public class ApplicationInitConfig {
                         .description("User role")
                         .build());
 
-                com.nkd.identity_service.entity.Role adminRole = roleRepository
-                        .save(com.nkd.identity_service.entity.Role.builder()
-                            .name(PredefinedRole.ADMIN_ROLE)
-                            .description("Admin role")
-                            .build()
-                        );
+                com.nkd.identity_service.entity.Role adminRole =
+                        roleRepository.save(com.nkd.identity_service.entity.Role.builder()
+                                .name(PredefinedRole.ADMIN_ROLE)
+                                .description("Admin role")
+                                .build());
 
                 var roles = new HashSet<Role>();
                 roles.add(adminRole);
